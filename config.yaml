@@ -1,0 +1,20 @@
+# ====== Input / Basic Settings ======
+input_data: "./cardiomyocyte.h5ad" # must be .h5ad
+celltype_colname: "cm.subtype"
+target_gene: "BCL6"
+n_cells_downsample: 20000
+
+# ====== GRN Construction ======
+base_GRN_model: "mouse"  # If using a custom base GRN, update the GRN-loading section in RunCellOracle.py
+oracle_file_name: "Cardiomyocyte.celloracle"
+grn_links_file_name: "cardiomyocyte.links"
+
+# ====== Trajectory Inference ======
+min_mass: 20
+use_manual_start: True
+start_cell: "TWCM-463-R-pre_TTTATGCCACAGAGGT"
+start_celltype: "CM0"
+dev_gradient_file_name: "cardiomyocyte.devGradient"
+
+# ====== Output ======
+save_folder: "./figures"
