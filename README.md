@@ -76,7 +76,7 @@ Two recommended ways to run:
 
 ```bash
 cd CellOracle_pipeline
-./script.bash
+bash script.bash
 ```
 
 This will run `python RunCellOracle.py --config config.yaml` and save figures/outputs to the `save_folder` configured.
