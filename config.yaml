@@ -1,16 +1,16 @@
 # config.yaml
 # === I/O ===
-input_data: "path/to/input.h5ad"
-save_folder: "results"
-oracle_file_name: "oracle"
-grn_links_file_name: "grn_links"
-dev_gradient_file_name: "dev_gradient"
+input_data: "./cardiomyocyte.h5ad" # must be .h5ad
+save_folder: "./figures"
+oracle_file_name: "Cardiomyocyte.celloracle"
+grn_links_file_name: "cardiomyocyte.links"
+dev_gradient_file_name: "cardiomyocyte.devGradient"
 
 # === Data ===
-celltype_colname: "celltype"
+celltype_colname: "cm.subtype"
 target_gene: "RUNX1"
-base_GRN_model: "human"
-n_cells_downsample: 10000
+base_GRN_model: "mouse"
+n_cells_downsample: 20000
 
 # === Condition mapping ===
 condition_map:
@@ -48,7 +48,7 @@ sigma_corr: 0.05
 # === Visualization ===
 quiver_scale: 25
 n_grid: 40
-min_mass: 0.01
+min_mass: 20
 mass_smooth: 0.8
 n_mass_neighbors: 200
 n_mass_suggestions: 12
@@ -61,9 +61,9 @@ vm_inner_product: 0.05
 grid_point_size: 50
 
 # === Pseudotime ===
-use_manual_start: false
-start_cell: ""
-start_celltype: "CF"
+use_manual_start: True
+start_cell: "TWCM-463-R-pre_TTTATGCCACAGAGGT"
+start_celltype: "CM0"
 n_top_genes_pseudotime: 1500
 hvg_flavor: "cell_ranger"
 num_waypoints: 600
