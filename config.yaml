@@ -8,8 +8,8 @@ dev_gradient_file_name: "cardiomyocyte.devGradient"
 
 # === Data ===
 celltype_colname: "cm.subtype"
-target_gene: "RUNX1"
-base_GRN_model: "mouse"
+target_gene: "BCL6"
+base_GRN_model: "mouse" # If using a custom base GRN, update the GRN-loading section in RunCellOracle.py
 n_cells_downsample: 20000
 
 # === Condition mapping ===
