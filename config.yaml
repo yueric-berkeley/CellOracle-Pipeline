@@ -1,20 +1,72 @@
-# ====== Input / Basic Settings ======
-input_data: "./cardiomyocyte.h5ad" # must be .h5ad
-celltype_colname: "cm.subtype"
-target_gene: "BCL6"
-n_cells_downsample: 20000
+# config.yaml
+# === I/O ===
+input_data: "path/to/input.h5ad"
+save_folder: "results"
+oracle_file_name: "oracle"
+grn_links_file_name: "grn_links"
+dev_gradient_file_name: "dev_gradient"
 
-# ====== GRN Construction ======
-base_GRN_model: "mouse"  # If using a custom base GRN, update the GRN-loading section in RunCellOracle.py
-oracle_file_name: "Cardiomyocyte.celloracle"
-grn_links_file_name: "cardiomyocyte.links"
+# === Data ===
+celltype_colname: "celltype"
+target_gene: "RUNX1"
+base_GRN_model: "human"
+n_cells_downsample: 10000
 
-# ====== Trajectory Inference ======
-min_mass: 20
-use_manual_start: True
-start_cell: "TWCM-463-R-pre_TTTATGCCACAGAGGT"
-start_celltype: "CM0"
-dev_gradient_file_name: "cardiomyocyte.devGradient"
+# === Condition mapping ===
+condition_map:
+  Donor: "Donor"
+  NRpre: "preLVAD HF"
+  Rpre: "preLVAD HF"
+  NRpost: "NRpost"
+  Rpost: "Rpost"
 
-# ====== Output ======
-save_folder: "./figures"
+# === PCA / KNN imputation ===
+n_comps_default: 50
+n_comps_max: 50
+n_comps_variance_threshold: 0.002
+knn_fraction: 0.025
+knn_balanced: true
+knn_b_sight_multiplier: 8
+knn_b_maxl_multiplier: 4
+knn_n_jobs: 4
+
+# === GRN ===
+grn_alpha: 10
+grn_verbose_level: 10
+links_p_threshold: 0.001
+links_weight: "coef_abs"
+links_threshold_number: 2000
+
+# === Simulation ===
+perturb_value: 0.0
+n_propagation: 3
+n_neighbors_transition: 200
+knn_random: true
+sampled_fraction: 0.2
+sigma_corr: 0.05
+
+# === Visualization ===
+quiver_scale: 25
+n_grid: 40
+min_mass: 0.01
+mass_smooth: 0.8
+n_mass_neighbors: 200
+n_mass_suggestions: 12
+scale_simulation: 7
+scale_dev: 40
+cluster_point_size: 10
+umap_point_size: 30
+vm_layout: 0.02
+vm_inner_product: 0.05
+grid_point_size: 50
+
+# === Pseudotime ===
+use_manual_start: false
+start_cell: ""
+start_celltype: "CF"
+n_top_genes_pseudotime: 1500
+hvg_flavor: "cell_ranger"
+num_waypoints: 600
+magic_smooth_method: "polynomial"
+magic_n_poly: 3
+n_digitized_bins: 10
