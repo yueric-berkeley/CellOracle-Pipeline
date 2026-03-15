@@ -134,7 +134,7 @@ n_comps = min(n_comps, config["n_comps_max"])
 
 ## KNN imputation
 n_cell = oracle.adata.shape[0]
-k = int(config["knn_faction"]*n_cell)
+k = int(config["knn_fraction"]*n_cell)
 oracle.knn_imputation(n_pca_dims=n_comps, k=k, balanced=True, b_sight=k*config["knn_b_sight_multiplier"],
                       b_maxl=k*config["knn_b_maxl_multiplier"], n_jobs=config["knn_n_jobs"])
 sc.pl.umap(oracle.adata, layer="raw_count",
