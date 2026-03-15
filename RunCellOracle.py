@@ -177,7 +177,7 @@ oracle.fit_GRN_for_simulation(alpha=10,
 
 # check gene expression
 goi = target_gene
-sc.pl.umap(oracle.adata, color=[goi, oracle.cluster_column_name], s=config["condition_map"],
+sc.pl.umap(oracle.adata, color=[goi, oracle.cluster_column_name], s=config["umap_point_size"],
                  layer="imputed_count", use_raw=False, cmap="viridis")
 plt.savefig(f"{save_folder}/imputed_{target_gene}_and_cluster_umap.png")
 plt.close()
