@@ -129,7 +129,7 @@ except Exception as e:
 plt.axvline(n_comps, c="k")
 plt.savefig(f"{save_folder}/Cumulative_variance_plot.png")
 plt.close()
-log.info("n_comps : ", n_comps)
+log.info(f"n_comps : {n_comps}")
 n_comps = min(n_comps, config["n_comps_max"])
 
 ## KNN imputation
