@@ -121,7 +121,7 @@ plt.plot(np.cumsum(oracle.pca.explained_variance_ratio_)[:100])
 
 # Try to define n_comps and default to 50 if it fails
 try:
-    n_comps = np.where(np.diff(np.diff(np.cumsum(oracle.pca.explained_variance_ratio_))>config["n_comps_variance_threshold"])[0][0]
+    n_comps = np.where(np.diff(np.diff(np.cumsum(oracle.pca.explained_variance_ratio_))>config["n_comps_variance_threshold"])[0][0])
 except Exception as e:
     log.info("IndexError, defaulting to 50 for n_comps")
     n_comps = config["n_comps_default"]
